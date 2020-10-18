@@ -14,7 +14,7 @@ session_start();
       if($_SESSION["user"]) {
     ?>
       <h1>  Welcome <?php echo $_SESSION["user"]; ?>.</h1> <p>Click here to<p>
-       <form action='loginuser.php' method='post'>
+       <form action='logout.php' method='post'>
         <button type='submit' class="btn btn-danger btn-lg btn-block">Logout</button>
      </form>
   <?php
