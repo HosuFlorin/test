@@ -30,32 +30,38 @@ if(isset($_SESSION["user"])) {
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-  <h2>HTML Login</h2>
-  <div id="inregistrare">
+  
+  <div class="container">
     <form action="" method="POST">
+    <h2>HTML Login</h2>
     <div class="message"><?php if($message!="") { echo $message; } ?></div>
 
-      <label for="fname">User</label><br>
-      <input type="text" id="nume" name="nume" value="" required><br><br>
+    <div class="form-group">
+        <label for="fname">User name</label><br>
+        <input type="text" class="form-control"  name="nume" placeholder="Enter user" required><br><br>
+      </div>
       
-      <label for="lname">Parola</label><br>
-      <input type="password" id="parola" name="parola" value="" required><br><br>
-      
-      
+      <div class="form-group">
+        <label for="lname">Parola</label><br>
+        <input type="password" class="form-control" name="parola" placeholder="Enter password" required ><br><br>
+      </div>
 
-      <input type="submit" value="Login" >
-      
-
+      <button type="submit" class="btn btn-success btn-lg btn-block" >Login</button>
     </form>
-    <form action="resetpassword.php" method="get">
-      <button type="submit">Lost Password</button>
-    </form>
-    <form action="createuser.php" method="get">
-      <button type="submit">Inregistrare</button>
-    </form>
+   <br>
+     <form action="resetpassword.php" method="get">
+          <button  type="submit"   class="btn btn-primary btn-lg btn-block">Lost Password</button>
+      </form>
+      <br>
+      <form action="createuser.php" method="get">
+         <button type="submit" class="btn btn-secondary btn-lg btn-block">Inregistrare</button>
+      </form>
   </div>
 
 

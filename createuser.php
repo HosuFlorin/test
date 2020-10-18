@@ -16,8 +16,8 @@ if(count($_POST)>0){
     $_SESSION["email"]=$_POST["email"];
     $_SESSION["user"]=$_POST["nume"];
     $_SESSION["pass"]=$_POST["parola"];
+    
   
-    echo $_SESSION["user"];
     
     
     
@@ -47,46 +47,69 @@ if(isset($_SESSION["user"])) {
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-  <h2>HTML Inregistrare</h2>
-  <div id="inregistrare">
+  
+  <div class="container">
     <form action="" method="post" >
     <div class="message"><?php if($message!="") { echo $message; } ?></div>
-      <h3>Titlu</h3>
-      <input type="radio" id="mr" name="rad" value="Mr" checked>
-      <label for="mr">Mr</label>
-      <input type="radio" id="mrs" name="rad" value="Mrs">
-      <label for="mrs">Mrs</label>
-      <input type="radio" id="miss" name="rad" value="Miss">
-      <label for="miss">Miss</label><br><br>
-
-      <label for="fname">User name</label><br>
-      <input type="text" id="nume" name="nume" value="" required><br><br>
-      <label for="lname">Prenume</label><br>
-      <input type="text" id="prenume" name="prenume" value="" required><br><br>
-      <label for="lname">Email</label><br>
-      <input type="email" id="email" name="email" value="" required><br><br>
-      <label for="lname">Telefon</label><br>
-      <input type="tel" id="telefon" name="telefon" value="" required><br><br>
-      <label for="lname">Parola</label><br>
-      <input type="password" id="parola" name="parola" value="" required ><br><br>
+      <h3>Inregistrare</h3>
+      
+        <input type="radio"  id='mr' name="rad"  checked>
+        <label class="radio-inline" for="mr">Mr</label>
+       <input type="radio"   id='mrs' name="rad" >
+        <label  class="radio-inline" for="mrs">Mrs</label>
+        <input type="radio"    id='miss' name="rad" >
+        <label class="radio-inline" for="miss">Miss</label><br><br>
+     
+      <div class="form-group">
+        <label for="fname">User name</label><br>
+        <input type="text" class="form-control"  name="nume" placeholder="Enter user" required><br><br>
+      </div>
+      <div class="form-group">
+        <label for="lname">Prenume</label><br>
+        <input type="text" class="form-control"  name="prenume" placeholder="Enter last name" required><br><br>
+      </div>
+      <div class="form-group">
+        <label for="lname">Email</label><br>
+        <input type="email" class="form-control" name="email" placeholder="Enter email" required><br><br>
+      </div>
+      <div class="form-group">
+        <label for="lname">Telefon</label><br>
+        <input type="tel" class="form-control" name="telefon" placeholder="Enter phone" required><br><br>
+      </div>
+      <div class="form-group">
+        <label for="lname">Parola</label><br>
+        <input type="password" class="form-control" name="parola" placeholder="Enter password" required ><br><br>
+      </div>
+      <div class="form-group">
       <label for="judete">County</label>
-      <select id="judete" name="judete">
+      <select id="judete"  class="form-control"  name="judete">
         <option value="Maramures">Maramures</option>
         <option value="Iasi">Iasi</option>
         <option value="Cluj">Cluj</option>
         <option value="Brasov">Brasov</option>
       </select><br><br>
-      <input type="checkbox" id="yes" name="yes" value="1">
-      <label for="yes"> Esti de acord cu termeni si conditile</label><br><br>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" name="yes" value="1">
+        <label for="yes"> Esti de acord cu termeni si conditile</label><br><br>
+      </div>
 
-      <input type="submit" name="createuser"value="Inregistrare">
-      <input type="reset" value="Resetare">
-
+      <button type="submit"  name="createuser" class="btn btn-success btn-lg btn-block">Inregistrare</button>
+      <button type="reset" class="btn btn-dark btn-lg btn-block">Resetare</button>
+      
     </form>
+    <br>
+    <form action="loginuser.php" method="get">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+      </form>
+    <br>
+    
   </div>
 
 
