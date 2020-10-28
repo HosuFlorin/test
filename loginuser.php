@@ -13,8 +13,7 @@ if(count($_POST)>0) {
     $_SESSION["user"]=$row["nume"];
     $_SESSION["pass"]=$row["parola"];
     $_SESSION["id"]=$row["id"];
-
-
+    $conn->close();
   }
   else {
     $message = "Invalid Username or Password!";

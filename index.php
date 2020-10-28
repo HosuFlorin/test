@@ -1,5 +1,11 @@
 <?php
 session_start();
+include 'server.php';
+$sql0 = "SELECT * FROM anunturi";
+  
+$result = mysqli_query($conn , $sql0);
+//$row  = mysqli_fetch_array($result);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,10 +19,21 @@ session_start();
     <?php
       if($_SESSION["user"]) {
     ?>
+
       <h1>  Welcome <?php echo $_SESSION["user"]; ?>.</h1> <p>Click here to<p>
        <form action='logout.php' method='post'>
         <button type='submit' class="btn btn-danger btn-lg btn-block">Logout</button>
      </form>
+     <br>
+     <form action='creareanunt.php' method='post'>
+        <button type='submit' class="btn btn-primary btn-lg btn-block">Anunt nou</button>
+     </form>
+      <h5><?php while($row = mysqli_fetch_assoc($result)){ ?>
+          <h3><?php echo $row['titlu']?></h3>
+          <h3><?php echo $row['timp']?></h3>
+          <h5><?php echo $row['anunt']?></h5><br>
+
+      <?php $conn->close();} ?></h5>
   <?php
   }
       else { 

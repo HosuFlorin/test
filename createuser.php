@@ -56,12 +56,12 @@ if(isset($_SESSION["user"])) {
   
   <div class="container">
     <form action="" method="post" >
-    <div class="message"><?php if($message!="") { echo $message; } ?></div>
+      <div class="message"><?php if($message!="") { echo $message; } ?></div>
       <h3>Inregistrare</h3>
       
         <input type="radio"  id='mr' name="rad"  checked>
         <label class="radio-inline" for="mr">Mr</label>
-       <input type="radio"   id='mrs' name="rad" >
+        <input type="radio"   id='mrs' name="rad" >
         <label  class="radio-inline" for="mrs">Mrs</label>
         <input type="radio"    id='miss' name="rad" >
         <label class="radio-inline" for="miss">Miss</label><br><br>
