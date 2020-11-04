@@ -4,7 +4,7 @@ include 'server.php';
 $sql0 = "SELECT * FROM anunturi";
   
 $result = mysqli_query($conn , $sql0);
-//$row  = mysqli_fetch_array($result);
+
 
 ?>
 <!DOCTYPE html>
@@ -28,12 +28,23 @@ $result = mysqli_query($conn , $sql0);
      <form action='creareanunt.php' method='post'>
         <button type='submit' class="btn btn-primary btn-lg btn-block">Anunt nou</button>
      </form>
+     <div class="row">
+     <div class="col-sm-6">
       <h5><?php while($row = mysqli_fetch_assoc($result)){ ?>
-          <h3><?php echo $row['titlu']?></h3>
+
+      <a href="paginaanunt.php">    
+      <h3><?php $_SESSION["anuntid"]= $row['id']; echo $row['titlu'];?></h3>
+      </a>
           <h3><?php echo $row['timp']?></h3>
           <h5><?php echo $row['anunt']?></h5><br>
-
+          <form action='actiuneanunt.php' method='post'>
+                <button type='submit' name="deletebutton"  class="btn btn-danger btn-lg ">Delete</button>         
+                
+        </form>
+        
       <?php $conn->close();} ?></h5>
+      </div>
+      </div>
   <?php
   }
       else { 
